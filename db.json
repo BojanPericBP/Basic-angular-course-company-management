@@ -1,0 +1,29 @@
+{
+  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
+  "login-admin": {
+    "id": 0,
+    "firstName": "Super",
+    "lastName": "Admin",
+    "roles": ["SuperAdministrator"],
+    "permissions": ["UserManage", "ProjectManage", "TeamManage"]
+  },
+
+  "login-user": {
+    "id": 0,
+    "firstName": "Bojan",
+    "lastName": "User",
+    "roles": ["user"],
+    "permissions": ["UserManage"]
+  },
+
+  "users": [
+    {
+      "id": 0,
+      "firstName": "Bojan",
+      "lastName": "Peric",
+      "dob": "03/06/1999",
+      "amoun": 1000,
+      "uuid": "0306999143256"
+    }
+  ]
+}
