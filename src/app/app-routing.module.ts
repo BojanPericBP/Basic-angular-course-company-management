@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './registration/login/login.component';
 import { WrapperComponent } from './wrappers/wrapper/wrapper.component';
+import { authGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
   },
   {
     path: '',
+    canActivate: [authGuard],
     component: WrapperComponent,
     children: [
       {

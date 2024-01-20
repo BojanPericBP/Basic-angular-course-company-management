@@ -5,15 +5,17 @@
     "firstName": "Super",
     "lastName": "Admin",
     "roles": ["SuperAdministrator"],
-    "permissions": ["UserManage", "ProjectManage", "TeamManage"]
+    "permissions": ["UserManage", "ProjectManage", "TeamManage"],
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJyb2xlcyI6WyJTdXBlckFkbWluIl0sImlkIjowLCJwZXJtaXNzaW9ucyI6WyJVc2VyTWFuYWdlIiwiUHJvamVjdE1hbmFnZSIsIlRlYW1NYW5hZ2UiXX0.2QYQ5zCpMvTCXtwQBS4nP1KlIUX5U-wwRIZOa-toFso"
   },
 
   "login-user": {
-    "id": 0,
+    "id": 1,
     "firstName": "Bojan",
     "lastName": "User",
     "roles": ["user"],
-    "permissions": ["UserManage"]
+    "permissions": ["UserManage"],
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJyb2xlcyI6WyJVc2VyIl0sImlkIjoxLCJwZXJtaXNzaW9ucyI6WyJVc2VyTWFuYWdlIl19.po4gCXMWZdPFiHbudIJVT5lbpQiyh32TPTD9Qqk9xN4"
   },
 
   "users": [
