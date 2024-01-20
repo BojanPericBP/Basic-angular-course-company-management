@@ -1,0 +1,41 @@
+//sidebar
+
+.drawer-container {
+   width: 100%;
+   height: 100%;
+}
+
+.example-container {
+   width: 500px;
+   height: 300px;
+   border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 64px;
+
+   border-bottom: 1px solid rgba(0, 0, 0, 0.281);
+}
+
+//navigation
+.active-link {
+   color: red;
+}
+
+button.active-link {
+   mat-icon {
+      color: red;
+   }
+}
+
+.example-sidenav-content {
+   display: flex;
+   padding: 24px 32px;
+}
+
+.example-sidenav {
+   width: 180px;
+}

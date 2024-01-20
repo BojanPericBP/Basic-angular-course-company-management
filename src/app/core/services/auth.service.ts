@@ -32,4 +32,8 @@ export class AuthService {
 
     this._router.navigate(['features']);
   }
+
+  public logout() {
+    this._router.navigate(['/login']);
+  }
 }

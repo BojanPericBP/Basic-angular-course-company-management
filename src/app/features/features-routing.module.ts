@@ -18,14 +18,38 @@ const routes: Routes = [
     title: 'Zaposleni',
   },
   {
+    path: 'users/:id',
+    loadComponent: () =>
+      import('./users/pages/user-item//user-item.component').then(
+        (c) => c.UserItemComponent
+      ),
+    title: 'Zaposlenik',
+  },
+  {
     path: 'teams',
     component: TeamListComponent,
     title: 'Timovi',
   },
   {
+    path: 'teams/:id',
+    loadComponent: () =>
+      import('./teams/pages/team-item/team-item.component').then(
+        (c) => c.TeamItemComponent
+      ),
+    title: 'Tim',
+  },
+  {
     path: 'projects',
     component: ProjectListComponent,
     title: 'Timovi',
+  },
+  {
+    path: 'projects/:id',
+    loadComponent: () =>
+      import('./projects/pages/project-item/project-item.component').then(
+        (c) => c.ProjectItemComponent
+      ),
+    title: 'Projekat',
   },
 ];
 

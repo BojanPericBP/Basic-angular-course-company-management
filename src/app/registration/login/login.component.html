@@ -1,30 +1,55 @@
 <div class="container">
-   <form [formGroup]="form" class="login-form">
-      <mat-form-field class="example-full-width">
-         <mat-label>Email</mat-label>
-         <input type="email" matInput formControlName="username" placeholder="Npr. test@example.com">
-         <mat-error>
-            <span *ngIf="!form.value.username">Polje je obavezno</span>
-            <span *ngIf="!!form.value.username">Format nije validan</span>
-         </mat-error>
-      </mat-form-field>
+  <form [formGroup]="form" class="login-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        formControlName="username"
+        placeholder="Npr. test@example.com"
+      />
+      <mat-error>
+        <span *ngIf="!form.value.username">Polje je obavezno</span>
+        <span *ngIf="!!form.value.username">Format nije validan</span>
+      </mat-error>
+    </mat-form-field>
 
-      <mat-form-field>
-         <mat-label>{{ 'Password' }}</mat-label>
-         <input matInput formControlName="password" [type]="hidePass ? 'password' : 'text'" />
-         <button mat-icon-button matSuffix (click)="hidePass = !hidePass">
-            <mat-icon *ngIf="hidePass" aria-hidden="false" aria-label="Example home icon" fontIcon="visibility_off">
-            </mat-icon>
-            <mat-icon *ngIf="!hidePass" aria-hidden="false" aria-label="Example home icon" fontIcon="visibility">
-            </mat-icon>
-         </button>
-         <mat-error>
-            <span *ngIf="!form.value.password">Polje je obavezno</span>
-            <span *ngIf="!!form.value.password">Min broj karaktera je 6</span>
-         </mat-error>
-      </mat-form-field>
-   </form>
+    <mat-form-field>
+      <mat-label>{{ "Password" }}</mat-label>
+      <input
+        matInput
+        formControlName="password"
+        [type]="hidePass ? 'password' : 'text'"
+      />
+      <button mat-icon-button matSuffix (click)="hidePass = !hidePass">
+        <mat-icon
+          *ngIf="hidePass"
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="visibility_off"
+        >
+        </mat-icon>
+        <mat-icon
+          *ngIf="!hidePass"
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="visibility"
+        >
+        </mat-icon>
+      </button>
+      <mat-error>
+        <span *ngIf="!form.value.password">Polje je obavezno</span>
+        <span *ngIf="!!form.value.password">Min broj karaktera je 6</span>
+      </mat-error>
+    </mat-form-field>
+  </form>
 
-   <button mat-raised-button color="primary" (click)="auth.login(this.form.value.username,this.form.value.password)"
-      [disabled]="form.invalid">Login</button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="auth.login(this.form.value.username, this.form.value.password)"
+    [disabled]="form.invalid"
+  >
+    Login
+  </button>
 </div>
