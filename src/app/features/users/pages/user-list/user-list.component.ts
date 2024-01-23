@@ -32,7 +32,7 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.usersSubscription = this.userService.getUsers().subscribe({
-      next: (res) => (this.users = res),
+      next: (res) => (this.users = [...res]),
       error: (err) => console.error('CUSTOM ERROR', err.message),
     });
   }

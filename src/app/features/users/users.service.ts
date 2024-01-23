@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { Observable } from 'rxjs';
 import { User } from 'src/app/core/utilities/types/core-types';
 import { environment } from 'src/app/environments/environment';
 
@@ -7,16 +8,16 @@ import { environment } from 'src/app/environments/environment';
   providedIn: 'root',
 })
 export class UsersService {
-  private _httpClien = inject(HttpClient);
+  private _httpClient = inject(HttpClient);
 
   constructor() {}
 
   public getUsers() {
-    return this._httpClien.get<User[]>(environment.apiURL + '/users');
+    return this._httpClient.get<User[]>(environment.apiURL + '/users');
   }
 
-  public getUserById(id: string) {
-    throw new Error('Implement this method');
+  public getUserById(id: string): Observable<User> {
+    return this._httpClient.get<User>(environment.apiURL + '/users/' + id);
   }
 
   public createUser(data: any) {
