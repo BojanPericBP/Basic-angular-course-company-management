@@ -1,1 +1,6 @@
-<p>user-list works!</p>
+<ng-container *ngFor="let user of users()">
+  <pre>{{ user | json }}</pre>
+</ng-container>
+
+<button (click)="createUserTest()">new user</button>
+<button (click)="updateUser()">update</button>

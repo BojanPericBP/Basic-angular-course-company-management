@@ -6,3 +6,9 @@ export interface User {
   roles: string[];
   token: string;
 }
+
+export interface UserInput {
+  id: string | null;
+  firstName: string;
+  lastName: string;
+}
