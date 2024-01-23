@@ -1,9 +1,9 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UsersService } from '../../users.service';
-import { User } from 'src/app/core/utilities/types/core-types';
-import { Unsubscribable } from 'rxjs';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EMPTY, Unsubscribable, switchMap } from 'rxjs';
+import { User } from 'src/app/core/utilities/types/core-types';
+import { UsersService } from '../../users.service';
 
 @Component({
   selector: 'app-user-item',
@@ -17,38 +17,31 @@ export class UserItemComponent implements OnInit, OnDestroy {
   private _route = inject(ActivatedRoute);
   router = inject(Router);
 
-  itemId: string = 'INICIJALNA VRIJEDNOST ID_A';
+  itemId: string = 'new';
 
   user!: User;
-  userSub!: Unsubscribable;
   routeSub!: Unsubscribable;
 
   constructor() {}
 
   ngOnInit(): void {
-    this.routeSub = this._route.params.subscribe((p) => {
-      this.itemId = p['id'];
-      console.log('ID iz rute', p['id']);
+    this.routeSub = this._route.params
+      .pipe(
+        switchMap((p) => {
+          this.itemId = p['id'];
 
-      this.userSub = this.userService.getUserById(this.itemId).subscribe({
-        next: (res) => {
-          console.log('get one user by id', res);
-          this.user = { ...res };
-          this.userSub?.unsubscribe();
-        },
+          //return empty kako bi sprijecili slanje requesta kada je id = 'new'
+          if (this.itemId === 'new') return EMPTY;
+          return this.userService.getUserById(p['id']);
+        })
+      )
+      .subscribe({
+        next: (res) => (this.user = { ...res }),
         error: (err) => console.error(err),
       });
-    });
-  }
-
-  i = 0;
-  kme() {
-    ++this.i;
-    this.router.navigate(['features', 'users', this.i]);
   }
 
   ngOnDestroy(): void {
-    this.userSub?.unsubscribe();
     this.routeSub?.unsubscribe();
   }
 }
