@@ -4,8 +4,9 @@ import { AuthService } from '../services/auth.service';
 
 export const authGuard: CanActivateFn = (route, state) => {
   let auth = inject(AuthService);
+  let storedUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
 
-  if (!auth.user?.token) {
+  if (!storedUser?.token) {
     alert('Neovlasten pokusaj pristupa sistemu!');
     auth.logout();
     return false;

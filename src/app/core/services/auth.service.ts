@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/app/environments/environment';
-import { User } from '../utilities/types/core-types';
+import { LoginUser } from '../utilities/types/core-types';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,7 @@ export class AuthService {
   private _http = inject(HttpClient);
   private _router = inject(Router);
 
-  private _user!: User;
+  private _user!: LoginUser;
 
   public get user() {
     return this._user;

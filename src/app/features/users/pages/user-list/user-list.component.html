@@ -1,1 +1,19 @@
-<p>user-list works!</p>
+<mat-action-list>
+  <div mat-subheader>Zaposleni</div>
+  <mat-list-item *ngFor="let user of users" (click)="editUser(user.id)">
+    <mat-icon matListItemIcon>person</mat-icon>
+    <div matListItemTitle>{{ user.firstName }} {{ user.lastName }}</div>
+    <div matListItemLine>{{ user.uuid }}</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-action-list>
+
+<button
+  mat-fab
+  color="primary"
+  aria-label="Dodaj novog korisnika"
+  routerLink="/features/users/new"
+  class="add-btn-pos"
+>
+  <mat-icon>add</mat-icon>
+</button>
