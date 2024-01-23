@@ -12,6 +12,15 @@ export interface User {
   firstName: string;
   lastName: string;
   dob: Date;
-  amoun: number;
+  amount: number;
+  uuid: string;
+}
+
+export interface UserInput {
+  id: string | null;
+  firstName: string;
+  lastName: string;
+  dob: Date;
+  amount: number;
   uuid: string;
 }

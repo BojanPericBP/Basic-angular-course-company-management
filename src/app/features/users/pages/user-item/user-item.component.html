@@ -1,3 +1,45 @@
-itemId: {{ itemId }}
+<div class="toolbar">
+  <div class="action">
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+    <div class="title">
+      <strong *ngIf="form.value.firstName"
+        >{{ form.value.firstName }} {{ form.value.lastName }}</strong
+      >
+      <strong *ngIf="!this.form.value.firstName">Novi</strong>
+      <small>Korisnik</small>
+    </div>
+  </div>
+  <button mat-raised-button [disabled]="form.invalid" color="primary">
+    Sacuvaj
+  </button>
+</div>
 
-<pre>{{ user | json }}</pre>
+<form [formGroup]="form">
+  <div class="form-row">
+    <mat-form-field>
+      <mat-label>{{ "Ime" }}</mat-label>
+      <input matInput formControlName="firstName" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ "Prezime" }}</mat-label>
+      <input matInput formControlName="lastName" />
+    </mat-form-field>
+  </div>
+
+  <div class="form-row">
+    <mat-form-field>
+      <mat-label>{{ "JMB" }}</mat-label>
+      <input matInput formControlName="uuid" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ "Plata" }}</mat-label>
+      <input matInput formControlName="amount" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ "Datum rodjenja" }}</mat-label>
+      <input matInput formControlName="dob" />
+    </mat-form-field>
+  </div>
+</form>
