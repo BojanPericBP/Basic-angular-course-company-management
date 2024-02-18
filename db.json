@@ -40,6 +40,30 @@
       "dob": "2024-01-31T23:00:00.000Z",
       "amount": 1000,
       "uuid": "0306999143256"
+    },
+    {
+      "id": 1,
+      "firstName": "Marko",
+      "lastName": "Markovic",
+      "uuid": "1232123432123",
+      "amount": "2000",
+      "dob": "2023-10-04T22:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "firstName": "Petar",
+      "lastName": "Petrovic",
+      "uuid": "9878987678987",
+      "amount": "3200",
+      "dob": "2023-07-03T22:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "firstName": "Pero",
+      "lastName": "Peric",
+      "uuid": "0192834738747",
+      "amount": "7888",
+      "dob": "1992-02-28T23:00:00.000Z"
     }
   ],
   "projects": [
@@ -53,7 +77,25 @@
     {
       "id": 0,
       "name": "Tim alpha",
-      "description": "Ovo je tim alpha"
+      "description": "Ovo je tim alpha",
+      "teamMembers": [
+        {
+          "id": 0,
+          "firstName": "Bojan",
+          "lastName": "Peric",
+          "dob": "2024-01-31T23:00:00.000Z",
+          "amount": 1000,
+          "uuid": "0306999143256"
+        },
+        {
+          "id": 3,
+          "firstName": "Pero",
+          "lastName": "Peric",
+          "uuid": "0192834738747",
+          "amount": "7888",
+          "dob": "1992-02-28T23:00:00.000Z"
+        }
+      ]
     }
   ]
 }

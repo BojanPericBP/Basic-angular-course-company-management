@@ -47,10 +47,12 @@ export interface TeamInput {
   id: string | null;
   name: string;
   description: string;
+  teamMembers: User[];
 }
 
 export interface Team {
   id: string;
   name: string;
   description: string;
+  teamMembers: User[];
 }

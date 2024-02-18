@@ -2,16 +2,35 @@
   [service]="teamService"
   [form]="form"
   [returnPath]="['features', 'teams']"
+  (onFetch)="handleFetchItem($event)"
 >
   <form [formGroup]="form">
-    <mat-form-field>
-      <mat-label>{{ "Naziv tima" }}</mat-label>
-      <input matInput formControlName="name" />
-    </mat-form-field>
+    <div class="form-fields">
+      <mat-form-field>
+        <mat-label>{{ "Naziv tima" }}</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>{{ "Opis tima" }}</mat-label>
+        <input matInput formControlName="description" />
+      </mat-form-field>
+    </div>
 
     <mat-form-field>
-      <mat-label>{{ "Opis tima" }}</mat-label>
-      <input matInput formControlName="description" />
+      <mat-label>{{ "Clanovi tima" }}</mat-label>
+      <mat-select
+        formControlName="teamMembers"
+        [multiple]="true"
+        [compareWith]="compareWith"
+      >
+        <mat-option *ngFor="let item of users$ | async" [value]="item">
+          {{ item.firstName }} {{ item.lastName }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
   </form>
+
+  <!-- Jos jedan nacin debagovanja.. -->
+  <!-- <pre>{{ form.value | json }}</pre> -->
 </app-item-wrapper>

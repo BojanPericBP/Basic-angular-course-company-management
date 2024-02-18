@@ -1,5 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnDestroy, OnInit, inject } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  inject,
+} from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -25,6 +33,9 @@ export class ItemWrapperComponent implements OnInit, OnDestroy {
   @Input({ required: true })
   service!: BaseService<any, any>;
 
+  @Output()
+  onFetch: EventEmitter<any> = new EventEmitter();
+
   route = inject(ActivatedRoute);
   router = inject(Router);
 
@@ -47,7 +58,7 @@ export class ItemWrapperComponent implements OnInit, OnDestroy {
         next: (res) => {
           this.item = { ...res };
           this.form.patchValue(res);
-          console.log('item get ', res);
+          this.onFetch.emit(res);
         },
         error: (err) => console.error(err),
       });

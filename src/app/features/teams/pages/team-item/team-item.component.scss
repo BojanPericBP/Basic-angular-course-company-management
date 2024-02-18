@@ -2,8 +2,15 @@
    form {
       display: flex;
       gap: 16px;
+      flex-direction: column;
 
       mat-form-field {
+         width: 100%;
+      }
+
+      .form-fields {
+         display: flex;
+         gap: 24px;
          width: 100%;
       }
    }
