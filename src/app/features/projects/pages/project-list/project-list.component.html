@@ -1,14 +1,15 @@
 <app-list-wrapper #wrapper listItemPath="projects">
-  <mat-action-list>
+  <mat-action-list *ngIf="projects$ | async as projects">
     <div mat-subheader>Projekti</div>
-    <mat-list-item
-      *ngFor="let project of projects$ | async"
-      (click)="wrapper.openItem(project.id)"
-    >
-      <mat-icon matListItemIcon>event_note</mat-icon>
-      <div matListItemTitle>{{ project.name }}</div>
-      <div matListItemLine>{{ project.description }}</div>
-    </mat-list-item>
-    <mat-divider></mat-divider>
+    <ng-container *ngFor="let project of projects; let i = index">
+      <mat-list-item (click)="wrapper.openItem(project.id)">
+        <mat-icon matListItemIcon>event_note</mat-icon>
+        <div matListItemTitle>{{ project.name }}</div>
+        <div matListItemLine>{{ project.description }}</div>
+      </mat-list-item>
+      <mat-divider *ngIf="i != projects.length - 1"></mat-divider>
+    </ng-container>
+
+    <app-empty-list-placeholder *ngIf="!projects?.length" />
   </mat-action-list>
 </app-list-wrapper>

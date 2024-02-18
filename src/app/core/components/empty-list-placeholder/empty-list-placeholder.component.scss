@@ -1,0 +1,14 @@
+:host {
+   display: flex;
+   gap: 16px;
+   padding-inline: 16px;
+
+   mat-icon {
+      color: #00000061;
+   }
+
+   p {
+      color: rgb(57, 57, 57);
+      font-weight: 500;
+   }
+}

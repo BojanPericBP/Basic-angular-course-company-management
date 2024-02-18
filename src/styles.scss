@@ -68,3 +68,14 @@ body {
   align-items: center;
   gap: 8px;
 }
+
+div[mat-subheader] {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(52, 52, 52);
+}
+
+mat-action-list {
+  box-shadow: 0 0 14px 4px rgba(9, 30, 66, 0.15);
+  padding-inline: 8px;
+}

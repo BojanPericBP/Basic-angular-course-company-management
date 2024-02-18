@@ -25,14 +25,29 @@
    border-bottom: 1px solid rgba(0, 0, 0, 0.281);
 }
 
+.example-sidenav {
+   width: 180px;
+   background-color: #464555;
+
+   mat-icon {
+      color: #FFFADE;
+   }
+
+   button {
+      color: #FFFADE;
+   }
+}
+
 //navigation
 .active-link {
-   color: red;
+   color: #ABA9BB;
 }
 
 button.active-link {
-   mat-icon {
-      color: red;
+
+   mat-icon,
+   span {
+      color: #ABA9BB;
    }
 }
 
@@ -44,8 +59,5 @@ button.active-link {
    flex-direction: column;
    padding-bottom: 56px;
    overflow: hidden;
-}
 
-.example-sidenav {
-   width: 180px;
 }

@@ -1,11 +1,14 @@
 <mat-action-list>
   <div mat-subheader>Zaposleni</div>
-  <mat-list-item *ngFor="let user of users" (click)="editUser(user.id)">
-    <mat-icon matListItemIcon>person</mat-icon>
-    <div matListItemTitle>{{ user.firstName }} {{ user.lastName }}</div>
-    <div matListItemLine>{{ user.uuid }}</div>
-  </mat-list-item>
-  <mat-divider></mat-divider>
+
+  <ng-container *ngFor="let user of users; let i = index">
+    <mat-list-item (click)="editUser(user.id)">
+      <mat-icon matListItemIcon>person</mat-icon>
+      <div matListItemTitle>{{ user.firstName }} {{ user.lastName }}</div>
+      <div matListItemLine>{{ user.uuid }}</div>
+    </mat-list-item>
+    <mat-divider *ngIf="i != users.length - 1"></mat-divider>
+  </ng-container>
 </mat-action-list>
 
 <button

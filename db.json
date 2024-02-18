@@ -68,9 +68,9 @@
   ],
   "projects": [
     {
-      "id": 0,
+      "id": 1,
       "name": "Projekat 1",
-      "description": "Ovo je opis za projekat 1",
+      "description": "Opis z aprojekat jedan kmeeee",
       "teams": [
         {
           "id": 0,
@@ -92,29 +92,6 @@
               "uuid": "0192834738747",
               "amount": "7888",
               "dob": "1992-02-28T23:00:00.000Z"
-            }
-          ]
-        },
-        {
-          "id": 1,
-          "name": "Tim beta",
-          "description": "Opis za tim beta",
-          "teamMembers": [
-            {
-              "id": 1,
-              "firstName": "Marko",
-              "lastName": "Markovic",
-              "uuid": "1232123432123",
-              "amount": "2000",
-              "dob": "2023-10-04T22:00:00.000Z"
-            },
-            {
-              "id": 2,
-              "firstName": "Petar",
-              "lastName": "Petrovic",
-              "uuid": "9878987678987",
-              "amount": "3200",
-              "dob": "2023-07-03T22:00:00.000Z"
             }
           ]
         }
