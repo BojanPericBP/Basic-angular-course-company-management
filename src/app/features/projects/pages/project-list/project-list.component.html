@@ -1,1 +1,14 @@
-<p>project-list works!</p>
+<app-list-wrapper #wrapper listItemPath="projects">
+  <mat-action-list>
+    <div mat-subheader>Projekti</div>
+    <mat-list-item
+      *ngFor="let project of projects$ | async"
+      (click)="wrapper.openItem(project.id)"
+    >
+      <mat-icon matListItemIcon>event_note</mat-icon>
+      <div matListItemTitle>{{ project.name }}</div>
+      <div matListItemLine>{{ project.description }}</div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-action-list>
+</app-list-wrapper>

@@ -1,1 +1,42 @@
-<p>item-wrapper works!</p>
+<div class="toolbar">
+  <div class="action">
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+    <div class="title">
+      <strong *ngIf="form.value.firstName && form.value.lastName">
+        {{ form.value.firstName }} {{ form.value.lastName }}
+      </strong>
+      <strong *ngIf="form.value.name">
+        {{ form.value.name }}
+      </strong>
+      <strong *ngIf="!this.form.value.firstName && !this.form.value.name">
+        Novi
+      </strong>
+      <small>Zapis</small>
+    </div>
+  </div>
+
+  <div style="flex: 1"></div>
+
+  <div class="options">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="deleteUser()">Obrisi</button>
+    </mat-menu>
+
+    <button
+      mat-raised-button
+      [disabled]="form.invalid"
+      color="primary"
+      (click)="onSubmit()"
+    >
+      Sacuvaj
+    </button>
+  </div>
+</div>
+
+<ng-content></ng-content>

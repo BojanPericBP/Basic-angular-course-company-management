@@ -1,1 +1,11 @@
-<p>list-wrapper works!</p>
+<ng-content></ng-content>
+
+<button
+  mat-fab
+  color="primary"
+  aria-label="Dodaj novi zapis"
+  (click)="openItem('new')"
+  class="add-btn-pos"
+>
+  <mat-icon>add</mat-icon>
+</button>

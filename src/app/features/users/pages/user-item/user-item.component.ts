@@ -8,13 +8,14 @@ import {
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EMPTY, Unsubscribable, switchMap } from 'rxjs';
-import { User } from 'src/app/core/utilities/types/core-types';
+import { EMPTY, Unsubscribable, first, switchMap } from 'rxjs';
+import { User, UserInput } from 'src/app/core/models/core-types';
 import { UsersService } from '../../users.service';
-import { validateHorizontalPosition } from '@angular/cdk/overlay';
-import { MatIconModule } from '@angular/material/icon';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
   selector: 'app-user-item',
@@ -26,6 +27,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
+    MatDatepickerModule,
+    MatMenuModule,
   ],
   templateUrl: './user-item.component.html',
   styleUrls: ['./user-item.component.scss'],
@@ -75,6 +78,57 @@ export class UserItemComponent implements OnInit, OnDestroy {
           this.form.patchValue(res);
         },
         error: (err) => console.error(err),
+      });
+  }
+
+  onSubmit() {
+    !!this.itemId && this.itemId !== 'new'
+      ? this.editUser()
+      : this.createNewUser();
+  }
+
+  createNewUser() {
+    this.userService
+      .createUser(<UserInput>this.form.value)
+      .pipe(first())
+      .subscribe({
+        next: (res) => {
+          console.log('User je kreiran ', res);
+          this.router.navigate(['features', 'users']);
+        },
+        error: (err) => {
+          console.error('GRESKA', err);
+        },
+      });
+  }
+
+  editUser() {
+    this.userService
+      .editUser(<UserInput>this.form.value)
+      .pipe(first())
+      .subscribe({
+        next: (res) => {
+          console.log('User je editovan ', res);
+          this.router.navigate(['features', 'users']);
+        },
+        error: (err) => {
+          console.error('GRESKA', err);
+        },
+      });
+  }
+
+  deleteUser() {
+    this.userService
+      .deleteUser(this.itemId)
+      .pipe(first())
+      .subscribe({
+        next: (res) => {
+          console.log('User je obrisan ', res);
+          this.router.navigate(['features', 'users']);
+        },
+        error: (err) => {
+          console.error('GRESKA', err);
+        },
       });
   }
 

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from 'src/app/core/utilities/types/core-types';
+import { User, UserInput } from 'src/app/core/models/core-types';
 import { environment } from 'src/app/environments/environment';
 
 @Injectable({
@@ -9,8 +9,6 @@ import { environment } from 'src/app/environments/environment';
 })
 export class UsersService {
   private _httpClient = inject(HttpClient);
-
-  constructor() {}
 
   public getUsers() {
     return this._httpClient.get<User[]>(environment.apiURL + '/users');
@@ -20,15 +18,18 @@ export class UsersService {
     return this._httpClient.get<User>(environment.apiURL + '/users/' + id);
   }
 
-  public createUser(data: any) {
-    throw new Error('Implement this method');
+  public createUser(data: UserInput) {
+    return this._httpClient.post<User>(environment.apiURL + '/users', data);
   }
 
-  public editUser(data: any) {
-    throw new Error('Implement this method');
+  public editUser(data: UserInput) {
+    return this._httpClient.patch<User>(
+      environment.apiURL + '/users/' + data.id,
+      data
+    );
   }
 
   public deleteUser(id: string) {
-    throw new Error('Implement this method');
+    return this._httpClient.delete(environment.apiURL + '/users/' + id);
   }
 }

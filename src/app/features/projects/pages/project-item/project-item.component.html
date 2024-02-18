@@ -1,1 +1,17 @@
-<p>project-item works!</p>
+<app-item-wrapper
+  [form]="form"
+  [returnPath]="['features', 'projects']"
+  [service]="projectService"
+>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <mat-label>{{ "Naziv projekta" }}</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{ "Opis projekta" }}</mat-label>
+      <input matInput formControlName="description" />
+    </mat-form-field>
+  </form>
+</app-item-wrapper>

@@ -11,9 +11,25 @@
       <small>Korisnik</small>
     </div>
   </div>
-  <button mat-raised-button [disabled]="form.invalid" color="primary">
-    Sacuvaj
-  </button>
+
+  <div class="options">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="deleteUser()">Obrisi</button>
+    </mat-menu>
+
+    <button
+      mat-raised-button
+      [disabled]="form.invalid"
+      color="primary"
+      (click)="onSubmit()"
+    >
+      Sacuvaj
+    </button>
+  </div>
 </div>
 
 <form [formGroup]="form">
@@ -39,7 +55,11 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>{{ "Datum rodjenja" }}</mat-label>
-      <input matInput formControlName="dob" />
+      <input matInput [matDatepicker]="picker" formControlName="dob" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker">
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
   </div>
 </form>

@@ -1,0 +1,53 @@
+:host {
+   width: 100%;
+
+   .toolbar {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+
+      .action {
+
+         display: flex;
+         align-items: center;
+
+         gap: 8px;
+
+         .title {
+            display: flex;
+            flex-direction: column;
+
+            small {
+               line-height: 10px;
+            }
+         }
+
+
+      }
+
+      .options {
+         display: flex;
+         align-items: center;
+         gap: 8px;
+      }
+   }
+
+
+
+
+   form {
+      display: flex;
+      flex-direction: column;
+
+      .form-row {
+         display: flex;
+         gap: 12px;
+
+         mat-form-field {
+            flex: 1;
+         }
+      }
+   }
+}
