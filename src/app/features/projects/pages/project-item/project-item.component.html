@@ -4,14 +4,28 @@
   [service]="projectService"
 >
   <form [formGroup]="form">
-    <mat-form-field>
-      <mat-label>{{ "Naziv projekta" }}</mat-label>
-      <input matInput formControlName="name" />
-    </mat-form-field>
+    <div class="form-fields">
+      <mat-form-field>
+        <mat-label>{{ "Naziv projekta" }}</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>{{ "Opis projekta" }}</mat-label>
+        <input matInput formControlName="description" />
+      </mat-form-field>
+    </div>
 
     <mat-form-field>
-      <mat-label>{{ "Opis projekta" }}</mat-label>
-      <input matInput formControlName="description" />
+      <mat-label>{{ "Timovi" }}</mat-label>
+      <mat-select
+        formControlName="teams"
+        [multiple]="true"
+        [compareWith]="compareTeams"
+      >
+        <mat-option *ngFor="let item of teams$ | async" [value]="item">
+          {{ item.name }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
   </form>
 </app-item-wrapper>
