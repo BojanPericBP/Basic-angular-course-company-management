@@ -1,1 +1,17 @@
-<p>team-item works!</p>
+<app-item-wrapper
+  [service]="teamService"
+  [form]="form"
+  [returnPath]="['features', 'teams']"
+>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <mat-label>{{ "Naziv tima" }}</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{ "Opis tima" }}</mat-label>
+      <input matInput formControlName="description" />
+    </mat-form-field>
+  </form>
+</app-item-wrapper>

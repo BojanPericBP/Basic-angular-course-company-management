@@ -48,5 +48,12 @@
       "name": "Projekat 1",
       "description": "Ovo je opis za projekat 1"
     }
+  ],
+  "teams": [
+    {
+      "id": 0,
+      "name": "Tim alpha",
+      "description": "Ovo je tim alpha"
+    }
   ]
 }

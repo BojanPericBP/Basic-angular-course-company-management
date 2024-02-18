@@ -40,3 +40,17 @@ export interface Project {
   name: string;
   description: string;
 }
+
+//TEAMS
+
+export interface TeamInput {
+  id: string | null;
+  name: string;
+  description: string;
+}
+
+export interface Team {
+  id: string;
+  name: string;
+  description: string;
+}
