@@ -17,7 +17,7 @@ export class AuthService {
   private _user!: LoginUser;
 
   public get user() {
-    return this._user;
+    return JSON.parse(localStorage.getItem('currentUser') || '{}');
   }
 
   public login(username: string | null = null, password: string | null = null) {

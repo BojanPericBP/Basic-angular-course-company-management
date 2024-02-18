@@ -1,7 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ItemWrapperComponent } from 'src/app/wrappers/item-wrapper/item-wrapper.component';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { ProjectService } from '../../project.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -32,14 +37,14 @@ export class ProjectItemComponent {
 
   form = new FormGroup({
     id: new FormControl<string | null>(null),
-    name: new FormControl<string | null>(null),
+    name: new FormControl<string | null>(null, [Validators.required]),
     description: new FormControl<string | null>(null),
-    teams: new FormControl<Team[] | null>(null),
+    teams: new FormControl<Team[] | null>(null, [Validators.required]),
   });
 
   constructor() {
     this.teams$ = this.teamService.getItems();
   }
 
-  compareTeams = (o1: Team, o2: Team) => o1.id === o2.id;
+  compareTeams = (o1: Team, o2: Team) => o1?.id === o2?.id;
 }

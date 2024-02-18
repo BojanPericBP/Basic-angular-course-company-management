@@ -46,13 +46,16 @@
     <span class="spacer"></span>
 
     <!-- LOGOUT AND OTHER OPTIONS - MENU -->
-    <button
-      mat-icon-button
-      [matMenuTriggerFor]="menu"
-      aria-label="Example icon-button with a menu"
-    >
-      <mat-icon>account_circle</mat-icon>
-    </button>
+    <div class="row">
+      <span>{{ auth.user?.firstName }} {{ auth.user?.lastName }}</span>
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+      >
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </div>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
         <mat-icon>person</mat-icon>
